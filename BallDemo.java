@@ -1,4 +1,9 @@
 import java.awt.Color;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.geom.*;
+import java.util.List;
+import java.util.*;
 
 /**
  * Class BallDemo - a short demonstration showing animation with the 
@@ -14,6 +19,7 @@ import java.awt.Color;
 public class BallDemo   
 {
     private Canvas myCanvas;
+    private Graphics2D graphic;
 
     /**
      * Create a BallDemo object. Creates a fresh canvas and makes it visible.
@@ -53,4 +59,16 @@ public class BallDemo
             }
         }
     }
+    
+        public void boxBounce()
+    {
+        int ground = 400;   // position of the ground line
+
+        myCanvas.setVisible(true);
+
+        // draw the ground
+        myCanvas.fillRectangle(50, 200, 500, 50);
+    
+
+}
 }
