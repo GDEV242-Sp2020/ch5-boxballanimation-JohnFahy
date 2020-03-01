@@ -16,7 +16,7 @@ import java.awt.geom.*;
  * @version 2011.07.31
  */
 
-public class boxBall
+public class BoxBall
 {
     private static final int speedFactor = 10;  // effect of gravity
 
@@ -46,7 +46,7 @@ public class boxBall
      * @param groundPos  the position of the ground (where the wall will bounce)
      * @param drawingCanvas  the canvas to draw this ball on
      */
-    public boxBall(int xPos, int yPos, int ballDiameter, Color ballColor,
+    public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor,
     int groundPos, int topPos, int right, int left, Canvas drawingCanvas)
     {
         xPosition = xPos;

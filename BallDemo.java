@@ -22,6 +22,7 @@ public class BallDemo
     private Canvas myCanvas;
     private Graphics2D graphic;
     private Random randomGenerator;
+    private ArrayList<BoxBall> totalBoxBalls;
 
     /**
      * Create a BallDemo object. Creates a fresh canvas and makes it visible.
@@ -30,6 +31,7 @@ public class BallDemo
     {
         myCanvas = new Canvas("Ball Demo", 600, 500);
         randomGenerator = new Random();
+        totalBoxBalls = new ArrayList<BoxBall>();
     }
 
     /**
@@ -82,19 +84,24 @@ public class BallDemo
 
         // for loop to create a random number of up to 30 new balls.
         for(int i = 5; i <= randomGenerator.nextInt(26) + 5; i++){
-            boxBall ball = new boxBall(randomGenerator.nextInt((right - left) + 1) + left, 
-                    randomGenerator.nextInt((ground - top) + 1) + top, 25, Color.YELLOW,
+            BoxBall ball = new BoxBall(randomGenerator.nextInt((right - left) + 1) + left + 25, 
+                    randomGenerator.nextInt((ground - top) + 1) + top +25, 25, Color.YELLOW,
                     ground, top, right, left, myCanvas);
-            ball.draw();
+            totalBoxBalls.add(ball);
 
-            boolean finished =  false;
-            while(!finished) {
-                myCanvas.wait(50);           // small delay
+        }
+
+        boolean finished =  false;
+        while(!finished) {
+            for(BoxBall ball: totalBoxBalls){
+                myCanvas.wait(10);           // small delay
+                ball.draw();
                 ball.move();
                 // stop once ball has travelled a certain distance on x axis
                 if(ball.getXPosition() >= 600) {
                     finished = true;
                 }
+
             }
         }
 
